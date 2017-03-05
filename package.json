@@ -7,7 +7,7 @@
     "scripts": {
         "start": "electron .",
         "build": "electron-packager . 'YouTube Background Player' --out outputs --overwrite --platform=darwin --arch=x64 --icon=app.icns",
-        "zip": "cd 'outputs/YouTube Background Player-darwin-x64' && zip --symlinks -r 'YouTube Background Player.app.zip' 'YouTube Background Player.app'",
+        "zip": "cd 'outputs/YouTube Background Player-darwin-x64' && zip --symlinks -r 'YouTube-Background-Player.app.zip' 'YouTube Background Player.app'",
         "pack": "npm run build && npm run zip"
     },
     "license": "MIT",
