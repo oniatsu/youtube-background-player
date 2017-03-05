@@ -20,5 +20,5 @@ npm start
 
 ## Packaging
 ```
-npm build
+npm run pack
 ```

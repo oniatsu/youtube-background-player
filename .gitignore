@@ -1,3 +1,5 @@
+outputs/
+
 ### https://raw.github.com/github/gitignore/3af1c2901fe89a2a75b6669a73b0a13e3f036182/Node.gitignore
 
 # Logs
@@ -89,8 +91,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
-dist/
-
-output/

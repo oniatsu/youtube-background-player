@@ -6,7 +6,9 @@
     "author": "oniatsu",
     "scripts": {
         "start": "electron .",
-        "build": "electron-packager . --out output --overwrite --platform=darwin --arch=x64 --icon=app.icns"
+        "build": "electron-packager . 'YouTube Background Player' --out outputs --overwrite --platform=darwin --arch=x64 --icon=app.icns",
+        "zip": "zip --symlinks -r 'outputs/YouTube Background Player-darwin-x64/YouTube Background Player.app.zip' 'outputs/YouTube Background Player-darwin-x64/YouTube Background Player.app'",
+        "pack": "npm run build && npm run zip"
     },
     "license": "MIT",
     "build": {
