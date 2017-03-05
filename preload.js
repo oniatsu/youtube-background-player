@@ -1,7 +1,7 @@
 const { ipcRenderer } = require('electron');
 
 onload = () => {
-    const target = document.querySelector('#player');
+    const target = document.body;
     if (target === null) return;
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
