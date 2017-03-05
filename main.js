@@ -43,9 +43,17 @@ mb.on('ready', () => {
                         });
                     },
                 },
+                {
+                    label: "Go to top page",
+                    click: () => {
+                        mb.window.webContents.send('menu-message', {
+                            goToTopPage: true,
+                        });
+                    },
+                },
                 { type: 'separator' },
                 {
-                    label: 'Open on browser',
+                    label: 'Open the page on browser',
                     click: () => {
                         mb.window.webContents.send('menu-message', {
                             openOnBrowser: true,
@@ -59,14 +67,6 @@ mb.on('ready', () => {
                             goToClipBoardUrlPage: {
                                 url: clipboard.readText(),
                             },
-                        });
-                    },
-                },
-                {
-                    label: "Go to top page",
-                    click: () => {
-                        mb.window.webContents.send('menu-message', {
-                            goToTopPage: true,
                         });
                     },
                 },
@@ -105,7 +105,7 @@ mb.on('ready', () => {
         submenu: [
             { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
             { type: "separator" },
-            { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); } }
+            { label: "Quit", accelerator: "Command+Q", click: function() { mb.app.quit(); } }
         ]
     }, {
         label: "Edit",
