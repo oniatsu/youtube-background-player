@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Background Player</title>
+    <style>
+        html,
+        body,
+        webview {
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<script>
+</script>
+
+<body>
+    <!-- Intentionally using Chrome 42. That is because Chrome 55 will stop video if the window is blured. -->
+    <webview id="video" preload="./preload.js" src="about:blank" useragent="Mozilla/5.0 (Linux; Android 7.1.1; Nexus 5X Build/N4F26I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2307.2 Mobile Safari/537.36"></webview>
+</body>
+
+<script src="./script.js"></script>
+
+</html>

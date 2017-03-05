@@ -1,0 +1,24 @@
+{
+    "name": "youtube-background-player",
+    "version": "0.1.0",
+    "description": "YouTube Background Player",
+    "main": "main.js",
+    "author": "oniatsu",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-packager . --out output --overwrite --platform=darwin --arch=x64 --icon=app.icns"
+    },
+    "license": "MIT",
+    "build": {
+        "appId": "oniatsu.github.io"
+    },
+    "postinstall": "install-app-deps",
+    "devDependencies": {
+        "electron": "^1.6.1",
+        "electron-packager": "^8.5.2"
+    },
+    "dependencies": {
+        "electron-json-storage": "^3.0.1",
+        "menubar": "^5.2.3"
+    }
+}
