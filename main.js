@@ -1,6 +1,9 @@
 const { Menu, clipboard } = require('electron');
 const menubar = require('menubar');
 const storage = require('electron-json-storage');
+const AutoLaunch = require('auto-launch');
+
+const packageJson = require('./package.json');
 
 const isDebuggable = false;
 
@@ -23,6 +26,7 @@ mb.on('after-create-window', () => {
 });
 
 mb.on('ready', () => {
+    // Set tray
     mb.tray.on('right-click', () => {
         storage.get('default', (error, data) => {
             if (error) throw error;
@@ -74,6 +78,27 @@ mb.on('ready', () => {
                 {
                     label: 'Settings',
                     submenu: [{
+                        label: 'Start on login',
+                        type: 'checkbox',
+                        checked: data.startOnLogin,
+                        click: (menuItem) => {
+                            data.startOnLogin = (data.startOnLogin) ? false : true;
+                            storage.set('default', data, (error) => {
+                                if (error) throw error;
+
+                                const autoLauncher = new AutoLaunch({
+                                    name: packageJson.appName,
+                                    path: `/Applications/${packageJson.appName}.app`,
+                                });
+
+                                if (data.startOnLogin) {
+                                    autoLauncher.enable();
+                                } else {
+                                    autoLauncher.disable();
+                                }
+                            });
+                        },
+                    }, {
                         label: 'Start on history page',
                         type: 'checkbox',
                         checked: data.defaultHistoryPage,
@@ -83,7 +108,7 @@ mb.on('ready', () => {
                                 if (error) throw error;
                             });
                         },
-                    }, ]
+                    }]
                 },
                 { type: 'separator' },
                 {
@@ -100,6 +125,7 @@ mb.on('ready', () => {
         });
     });
 
+    // Set application menus
     const template = [{
         label: "Application",
         submenu: [
@@ -119,6 +145,5 @@ mb.on('ready', () => {
             { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
         ]
     }];
-
     Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 });
