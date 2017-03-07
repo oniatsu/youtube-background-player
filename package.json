@@ -1,7 +1,7 @@
 {
     "name": "youtube-background-player",
     "appName": "YouTube Background Player",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "YouTube Background Player",
     "main": "main.js",
     "author": "oniatsu",
